@@ -16,7 +16,7 @@ target_include_directories(
 
 install(
     TARGETS armadillo
-    EXPORT Armadillo-targets
+    EXPORT armadillo-targets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
@@ -27,20 +27,17 @@ install(
 )
 
 export(
-    EXPORT Armadillo-targets
-    NAMESPACE Armadillo::
-    FILE Armadillo-targets.cmake
+    EXPORT armadillo-targets
+    NAMESPACE armadillo::
 )
 
 install(
-    EXPORT Armadillo-targets
-    NAMESPACE Armadillo::
-    FILE Armadillo-targets.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Armadillo
+    EXPORT armadillo-targets
+    NAMESPACE armadillo::
+    DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/armadillo"
 )
 
-
 install(
-    FILES Armadillo-config.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Armadillo
+    FILES armadillo-config.cmake
+    DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/armadillo"
 )
