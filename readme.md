@@ -33,4 +33,8 @@ $ make
 - `CMAKE_INSTALL_PREFIX` controls where `make install` will install the library.
 - `CMAKE_PREFIX_PATH` controls where `cmake` looks for libraries.
 
-You can find more documentation in the CMake files.
+Please read the CMake files:
+
+- [./mylib/CMakeLists.txt](./mylib/CMakeLists.txt)
+- [./mylib/mylib-config.cmake](./mylib/mylib-config.cmake)
+- [./myapp/CMakeLists.txt](./myapp/CMakeLists.txt)
