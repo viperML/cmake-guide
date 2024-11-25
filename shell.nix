@@ -4,5 +4,10 @@ mkShell {
     cmake
     neocmakelsp
     ninja
+    clang-tools
   ];
+
+  env = {
+    CMAKE_EXPORT_COMPILE_COMMANDS = true;
+  };
 }
