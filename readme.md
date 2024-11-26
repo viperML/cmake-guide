@@ -38,3 +38,9 @@ Please read the CMake files:
 - [./mylib/CMakeLists.txt](./mylib/CMakeLists.txt)
 - [./mylib/mylib-config.cmake](./mylib/mylib-config.cmake)
 - [./myapp/CMakeLists.txt](./myapp/CMakeLists.txt)
+
+### Documentation
+
+- https://pabloariasal.github.io/2018/02/19/its-time-to-do-cmake-right/
+- https://www.foonathan.net/2016/03/cmake-install/
+- https://www.youtube.com/watch?v=eC9-iRN2b04
