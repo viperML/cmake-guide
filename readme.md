@@ -8,38 +8,42 @@ This repository exposes 2 C++ packages that use CMake:
 The library exports the proper CMake targets, such that it can be linked to from
 the application using `find_package(mylib REQUIRED)`.
 
-First, select some directory to use as a prefix to install the library. For
-example, if you cloned this repo at `~/src/cmake-guide`, a nice option is to
-use `~/src/cmake-guide/out` as the prefix.
+Additionally, the library is also prepared to be used with `add_subdirectory`,
+requiring no changes to the targets to link to.
 
-To build and install the library:
+---
+
+Building as an external package (useful for packaging):
 
 ```
-~/src/cmake-guide/mylib 
-$ cmake -B build -DCMAKE_INSTALL_PREFIX=../out 
+$ pushd mylib
+$ cmake -B build -DCMAKE_INSTALL_PREFIX=../out
 $ cd build
 $ make all install
+$ popd
+
+$ pushd myapp
+$ CMAKE_PREFIX_PATH=../out cmake -B build -DUSE_EXTERNAL_MYLIB=ON
+$ cd build
+$ make all
 ```
 
-To use the library from the app:
+---
 
+Building as a subproject (useful for development):
 ```
-~/src/cmake-guide/myapp
-$ export CMAKE_PREFIX_PATH=../out
+$ pushd myapp
 $ cmake -B build
-$ make
+$ make all
 ```
 
-- `CMAKE_INSTALL_PREFIX` controls where `make install` will install the library.
-- `CMAKE_PREFIX_PATH` controls where `cmake` looks for libraries.
+### Documentation
 
 Please read the CMake files:
 
 - [./mylib/CMakeLists.txt](./mylib/CMakeLists.txt)
 - [./mylib/mylib-config.cmake](./mylib/mylib-config.cmake)
 - [./myapp/CMakeLists.txt](./myapp/CMakeLists.txt)
-
-### Documentation
 
 - https://pabloariasal.github.io/2018/02/19/its-time-to-do-cmake-right/
 - https://www.foonathan.net/2016/03/cmake-install/

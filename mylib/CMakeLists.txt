@@ -13,7 +13,7 @@ cmake_minimum_required(VERSION 3.16)
 
 # If you want, you might as well use the same name for everything
 
-project(myproject VERSION 0.1 LANGUAGES C CXX)
+project(myproject VERSION 0.1 LANGUAGES CXX)
 
 # This brings CMAKE_INSTALL_LIBDIR, etc
 include(GNUInstallDirs)
@@ -50,6 +50,10 @@ install(
     NAMESPACE MyLib::
     DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/mylib"
 )
+
+# If the user uses the project with add_subdirectory,
+# also provide the target with the namespace as an alias
+add_library(MyLib::mylib ALIAS mylib)
 
 # Install the configuration file
 install(
