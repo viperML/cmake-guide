@@ -14,10 +14,10 @@ add_executable(myapp myapp.cpp)
 set(USE_EXTERNAL_MYLIB CACHE BOOL "Whether to use an external MyLib with find_package")
 
 if(USE_EXTERNAL_MYLIB)
-    message("-- [MyApp] Using external MyLib")
+    message(STATUS "Using external MyLib")
     find_package(mylib REQUIRED)
 else()
-    message("-- [MyApp] Using vendored MyLib")
+    message(STATUS "Using vendored MyLib")
     add_subdirectory(../mylib mylib)
 endif()
 
