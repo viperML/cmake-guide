@@ -21,7 +21,19 @@ else()
     add_subdirectory(../mylib mylib)
 endif()
 
+set(USE_EXTERNAL_MYLIB_HEADER CACHE BOOL "Whether to use an external MyLibHeader with find_package")
+
+if(USE_EXTERNAL_MYLIB_HEADER)
+    message(STATUS "Using external MyLibHeader")
+    find_package(mylib-header REQUIRED)
+else()
+    message(STATUS "Using vendored MyLibHeader")
+    add_subdirectory(../mylib-header mylib-header)
+endif()
+
 
 # The modern way is to use targets, instead of _INCLUDE_DIRS or _LIBRARIES
 target_link_libraries(myapp PRIVATE MyLib::mylib)
 
+# Even when using header-only libraries, we use targets and target_link_libraries
+target_link_libraries(myapp PRIVATE MyLibHeader::mylib-header)
